@@ -1,0 +1,12 @@
+:root{
+    background-color: var(--cinza-fundo) !important;
+    min-width: 100vh;
+}
+
+.main-page{
+    padding: 2.5%;
+
+    display: flex;
+
+    gap: 2rem;
+}
