@@ -1,14 +1,22 @@
 .casa-card{
-    border-radius: 12px;
+    border-radius: 18px;
     background-color: white;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
-    width: 25rem;
-    height: 30rem;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    width: 20rem;
+    height: 25rem;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    cursor: pointer;
+    transition: ease-out 0.2s;
+}
+
+.casa-card:hover{
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1rem);
+    border-radius: 24px;
 }
 
 .image-container{
@@ -26,8 +34,8 @@
 }
 
 .title{
-    font-weight: 800;
-    font-size: 1.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 
 .descricao{
@@ -40,11 +48,12 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    font-size: 0.85rem;
 }
 
 .bola-disponibilidade{
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
     background-color: var(--vermelho);
     border-radius: 100%;
 }
