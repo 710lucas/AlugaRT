@@ -23,8 +23,7 @@ export default function Header() {
 
             <div className="profile-container">
                 <div className="favorites-container">
-                    <h4>Favoritos</h4> <span style={{color: 'red', fontSize: '1.5rem', fontWeight: '700'}}>♡</span>
-                    
+                    Favoritos <span style={{color: 'red', fontSize: '1.25rem', fontWeight: '500'}}>♡</span>
                 </div>
                 <div className="profile-picture"></div>
             </div>
