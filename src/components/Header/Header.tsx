@@ -1,3 +1,4 @@
+import BaseIcon from '../Icon/BaseIcon';
 import QuickSearchButtons from './components/quickSearchButtons/quickSearchButtons';
 import './style.css';
 
@@ -23,7 +24,8 @@ export default function Header() {
 
             <div className="profile-container">
                 <div className="favorites-container">
-                    Favoritos <span style={{color: 'red', fontSize: '1.25rem', fontWeight: '500'}}>♡</span>
+                    Favoritos 
+                    <BaseIcon iconName='favorite' color='red' fill={false}/>
                 </div>
                 <div className="profile-picture"></div>
             </div>
