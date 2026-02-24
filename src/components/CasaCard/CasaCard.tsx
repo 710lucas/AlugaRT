@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Casa } from '../../pages/home'
+import TextInput from '../TextInput/TextInput';
 import './style.css'
 
 export type CasaCardProps = {
