@@ -1,0 +1,39 @@
+.text-input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.text-input-label{
+    color: var(--cinza-texto);
+    font-weight: 400;
+}
+
+.text-input{
+    outline: none;
+    box-shadow: 0px 0px 2px var(--cinza);
+    border: none;
+    border-radius: 0.45rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+
+.errorMessage{
+    font-size: 0.85rem;
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.text-input-char-count{
+    font-size: 0.75rem;
+    align-self: flex-start;
+    color: var(--cinza);
+    margin-right: 0.25rem;
+}
+
+.text-input-extra-info{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5rem;
+    justify-content: flex-start;
+}
