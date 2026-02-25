@@ -39,7 +39,6 @@ export default function HomePage () {
         },
     ]
 
-    const [imagens, setImagens] = useState<string[]>([])
 
     return (
         <div className="home-page-container">
@@ -50,7 +49,6 @@ export default function HomePage () {
                         return <CasaCard casa={casa}/>
                     })
                 }
-                <ImageInput imagens={imagens} setImagens={setImagens}/>
             </div>
         </div>
     )
