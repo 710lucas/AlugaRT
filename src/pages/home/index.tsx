@@ -1,5 +1,7 @@
+import { useState } from "react";
 import CasaCard from "../../components/CasaCard/CasaCard";
 import Header from "../../components/Header/Header";
+import ImageInput from "../../components/ImageInput/ImageInput";
 import './style.css'
 
 export type Casa = {
@@ -37,6 +39,8 @@ export default function HomePage () {
         },
     ]
 
+    const [imagens, setImagens] = useState<string[]>([])
+
     return (
         <div className="home-page-container">
             <Header/>
@@ -46,6 +50,7 @@ export default function HomePage () {
                         return <CasaCard casa={casa}/>
                     })
                 }
+                <ImageInput imagens={imagens} setImagens={setImagens}/>
             </div>
         </div>
     )
