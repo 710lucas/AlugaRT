@@ -1,3 +1,7 @@
 .base-icon-span{
     vertical-align: middle;
 }
+
+.base-icon-span::selection{
+    background-color: transparent;
+}
