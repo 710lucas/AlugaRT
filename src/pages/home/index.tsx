@@ -1,5 +1,7 @@
+import { useState } from "react";
 import CasaCard from "../../components/CasaCard/CasaCard";
 import Header from "../../components/Header/Header";
+import ImageInput from "../../components/ImageInput/ImageInput";
 import './style.css'
 
 export type Casa = {
@@ -36,6 +38,7 @@ export default function HomePage () {
             imagem: 'x'
         },
     ]
+
 
     return (
         <div className="home-page-container">
