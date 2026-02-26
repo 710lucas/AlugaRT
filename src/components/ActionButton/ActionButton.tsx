@@ -4,7 +4,8 @@ import "./ActionButton.css"
 export type ActionButtonProps = {
     name : string;
     action : () => void;
-    icon? : string
+    icon? : string;
+    cor? : string;
 }
 
 export default function ActionButton(props : ActionButtonProps){
@@ -12,11 +13,18 @@ export default function ActionButton(props : ActionButtonProps){
     const {
         name,
         action,
-        icon
+        icon,
+        cor
     } = props;
 
     return(
-        <div className="button-container" onClick={action}>
+        <div 
+            className="button-container" 
+            onClick={action}
+            style={cor ? {
+                backgroundColor: cor
+            } : {}}
+        >
             <span className="button-name">{name}</span>
             {
                 icon !== undefined && 
