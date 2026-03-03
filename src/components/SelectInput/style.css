@@ -1,0 +1,33 @@
+.selectInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.selectInputLabel {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.selectInput {
+    background-color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.2s ease;
+}
+
+.selectInput:hover {
+    border-color: #999;
+}
+
+.selectInput:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0px 2px 4px rgba(0, 102, 204, 0.3);
+}
