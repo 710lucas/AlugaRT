@@ -7,6 +7,8 @@ import LoginPage from './pages/login/index.tsx'
 import AuthContextProvider from './contexts/AuthContext/AuthContext.tsx'
 import { CasaProvider } from './contexts/CasaContext/CasaContext.tsx'
 import CasaDetalhesPage from './pages/casa/index.tsx'
+import { UsuarioProvider } from './contexts/UsuarioContext/UsuarioContext.tsx'
+import { AvaliacaoProvider } from './contexts/AvaliacaoContext/AvaliacaoContext.tsx'
 
 
 const router = createBrowserRouter([
@@ -27,7 +29,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/casa/:id", 
-    element: <CasaDetalhesPage />,
+    element: 
+    <CasaProvider>
+      <UsuarioProvider>
+        <AvaliacaoProvider>
+          <CasaDetalhesPage />,
+        </AvaliacaoProvider>
+      </UsuarioProvider>
+    </CasaProvider>
   },
 ])
 
