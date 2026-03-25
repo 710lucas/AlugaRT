@@ -1,0 +1,154 @@
+.detalhes-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    width: 100%;
+}
+
+header, .header-container { 
+    width: 100%;
+}
+
+.detalhes-card-main {
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    max-width: 1100px;
+    width: 90%; 
+    padding: 20px;
+    gap: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px; 
+    background-color: white;
+    box-sizing: border-box; 
+}
+
+@media (max-width: 900px) {
+    .detalhes-card-main {
+        flex-direction: column;
+        width: 95%;
+    }
+    
+    .coluna-imagem, .coluna-info {
+        flex: 1;
+    }
+}
+
+.coluna-imagem {
+    flex: 1.2;
+}
+
+.foto-principal {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.acoes-abaixo-imagem {
+    margin-top: 15px;
+}
+
+.modo-proprietario-acoes {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.modo-locador-acoes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.estrelas-avaliacao-grande {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.favoritar-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #FF5A5F;
+    cursor: pointer;
+}
+
+.coluna-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-dono {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.perfil-flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.preco-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.valor-casa {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.linha-separadora {
+    border: 0.5px solid #eee;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.tags-container-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.secao-comentarios {
+    width: 100%;
+    max-width: 1100px;
+    margin-top: 30px;
+}
+
+.card-comentario {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+}
+
+.header-comentario {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.estrelas-comentario {
+    display: flex;
+}
+

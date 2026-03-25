@@ -6,6 +6,8 @@ import HomePage from './pages/home/index.tsx'
 import LoginPage from './pages/login/index.tsx'
 import AuthContextProvider from './contexts/AuthContext/AuthContext.tsx'
 import { CasaProvider } from './contexts/CasaContext/CasaContext.tsx'
+import CasaDetalhesPage from './pages/casa/index.tsx'
+
 
 const router = createBrowserRouter([
   {
@@ -22,7 +24,11 @@ const router = createBrowserRouter([
   {
     path: "/hello-world",
     element: <h1>Hello World</h1>
-  }
+  },
+  {
+    path: "/casa/:id", 
+    element: <CasaDetalhesPage />,
+  },
 ])
 
 createRoot(document.getElementById('root')!).render(
