@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useMemo } from "react";
 import CasaCard from "../../components/CasaCard/CasaCard";
 import Header from "../../components/Header/Header";
 import './style.css'
@@ -12,17 +12,50 @@ export type Casa = {
     imagem : string;
 }
 
+export interface Filtros {
+    tags: string[];
+    quartos: string;
+}
+
 export default function HomePage () {
 
     const casaContext = useContext(CasaContext)
+    const [filtros, setFiltros] = useState<Filtros>({
+        tags: [],
+        quartos: ''
+    });
+
+    const casasFiltradas = useMemo(() => {
+        if (!casaContext?.casas) return [];
+
+        return casaContext.casas.filter((casa) => {
+            if (filtros.tags.length > 0) {
+                const temAtraPenasUmaTag = filtros.tags.some(tag => 
+                    casa.tags.includes(tag.toLowerCase())
+                );
+                if (!temAtraPenasUmaTag) return false;
+            }
+
+            if (filtros.quartos !== '') {
+                const quartosRequiridos = parseInt(filtros.quartos);
+                if (casa.vagas < quartosRequiridos) return false;
+            }
+
+            return true;
+        });
+    }, [casaContext?.casas, filtros]);
+
+    const handleApplyFilters = (novosFiltros: Filtros) => {
+        setFiltros(novosFiltros);
+    };
 
     return (
         <div className="home-page-container">
-            <Header/>
+            <Header onFiltersApply={handleApplyFilters}/>
             <div className="main-page">
                 {
-                    casaContext?.casas.map((casa) => {
-                        return <CasaCard casa={casa}/>
+                    casasFiltradas.map((casa) => {
+                        return <CasaCard key={casa.id} casa={casa}/>
                     })
                 }
             </div>

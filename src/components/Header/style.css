@@ -1,109 +1,140 @@
-.header-container{
-    background-color: white;
-    max-width: 100%;
-    padding: 1rem;
-
+.header-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-
-    display: flex;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
 }
 
-.logo-container{
-    color: var(--preto);
-    font-size: 32px;
+.logo-container {
+    font-size: 1.8rem;
     font-weight: 800;
+    cursor: pointer;
 }
 
-.search-bar-container{
+.search-bar-container {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 12px;
+    width: 45%;
+    max-width: 600px;
 }
 
-.search-bar{
-    background-color: var(--cinza-fundo);
-    text-decoration: none;
-    border: none;
-    width: 30rem;
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 30px;
+    padding: 0 15px;
+    width: 100%;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.search-input-wrapper:focus-within {
+    background-color: white;
+    border-color: #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.search-bar {
+    border: none !important;
+    background: transparent !important;
+    padding: 12px 10px !important;
+    flex: 1;
+    outline: none;
     font-size: 1rem;
-    padding: 0.5rem;
-    border-radius: 20rem;
-}
-.search-bar:focus-visible{
-    outline: 2px solid var(--cinza);
+    color: #333;
 }
 
-
-.quick-search-buttons-container{
-    display: flex;
-    gap: 1rem;
-    justify-content: start;
-}
-
-.profile-container{
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.favorites-container{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    gap: 0.5rem;
+.filter-icon-btn {
+    padding-right: 12px;
+    border-right: 1px solid #ccc;
     cursor: pointer;
-    font-size: 1rem;
-    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.profile-picture{
-    width: 3rem;
-    height: 3rem;
+.search-lupa-btn {
+    padding-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.filter-icon-btn:hover, .search-lupa-btn:hover {
+    opacity: 0.6;
+}
+
+.quick-search-buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.favorites-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.profile-picture {
+    width: 45px;
+    height: 45px;
     background-color: var(--vermelho);
-    border-radius: 100%;
+    color: white;
+    border-radius: 50%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
-    text-align: center;
-    color: white;
-    font-weight: 800;
-    font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
-.profile-picture::selection{
-    background-color: transparent;
-}
-
-.userSubmenu{
+.userSubmenu {
     position: absolute;
-    top: 5rem;
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
-    border-radius: 0.5rem;
-    gap: 1rem;
+    top: 70px;
+    right: 40px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 10px;
+    width: 150px;
     display: flex;
     flex-direction: column;
-    margin-left: 4rem;
+    gap: 5px;
 }
 
-.submenuButton{
-    color: var(--vermelho);
+.submenuButton {
     display: flex;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
     cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    transition: 0.2s all;
+    border-radius: 8px;
+    transition: background 0.2s;
 }
 
-.submenuButton:hover{
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.25) inset;
-    background-color: lightgray;
+.submenuButton:hover {
+    background-color: #f5f5f5;
 }
 
-.loginButton{
+.loginButton {
     color: var(--vermelho);
+    text-decoration: underline;
+    font-weight: bold;
 }
