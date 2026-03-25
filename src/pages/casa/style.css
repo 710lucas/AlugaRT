@@ -1,3 +1,99 @@
+/* Carrossel de imagens integrado */
+.carrossel-imagens-integrado {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carrossel-imagens-integrado .foto-principal {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 1;
+}
+
+.carrossel-btn-integrado {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #FF5A5F;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.carrossel-btn-integrado:hover {
+    background: #FF5A5F;
+    color: #fff;
+}
+.carrossel-btn-esq {
+    left: 18px;
+}
+.carrossel-btn-dir {
+    right: 18px;
+}
+
+.carrossel-seta {
+    pointer-events: none;
+}
+
+.carrossel-indicadores {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 3;
+}
+.carrossel-indicador {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    border: 2px solid #FF5A5F;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+    display: inline-block;
+}
+.carrossel-indicador.ativo {
+    background: #FF5A5F;
+    border: 2px solid #FF5A5F;
+}
+
+@media (max-width: 600px) {
+    .carrossel-imagens-integrado .foto-principal {
+        height: 220px;
+    }
+    .carrossel-btn-integrado {
+        width: 34px;
+        height: 34px;
+        font-size: 1.3rem;
+    }
+    .carrossel-btn-esq {
+        left: 6px;
+    }
+    .carrossel-btn-dir {
+        right: 6px;
+    }
+    .carrossel-indicadores {
+        bottom: 8px;
+    }
+}
 .detalhes-container {
     display: flex;
     flex-direction: column;
@@ -17,7 +113,7 @@ header, .header-container {
     display: flex;
     max-width: 1100px;
     width: 90%; 
-    padding: 20px;
+    padding: 2rem;
     gap: 30px;
     margin-top: 30px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -152,3 +248,33 @@ header, .header-container {
     display: flex;
 }
 
+
+.info-proprietario{
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.nome-dono{
+    margin: 0;
+    padding: 0;
+}
+
+.stats-dono{
+    margin: 0;
+    padding: 0;
+}
+
+.titulo-casa{
+    margin: 0;
+    padding: 0;
+}
+
+.endereco-casa{
+    margin: 0;
+    padding: 0;
+}
+
+.hidden{
+    display: none;
+}

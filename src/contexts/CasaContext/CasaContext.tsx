@@ -7,6 +7,7 @@ interface CasaContextType {
   createCasa: (casa: Omit<Casa, "id">) => Casa;
   updateCasa: (index: number, casa: Partial<Casa>) => Casa;
   deleteCasa: (index: number) => Casa[];
+  getCasaById: (id : number) => Casa | undefined;
 }
 
 export const CasaContext = createContext<CasaContextType | undefined>(undefined);
@@ -29,9 +30,12 @@ export const CasaProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setCasas(defaultDb.readCasas());
     return defaultDb.readCasas();
   }
+  function getCasaById(id : number){
+    return defaultDb.readCasas().find(c => c.id === id);
+  }
 
   return (
-    <CasaContext.Provider value={{ casas, createCasa, updateCasa, deleteCasa }}>
+    <CasaContext.Provider value={{ casas, createCasa, updateCasa, deleteCasa, getCasaById }}>
       {children}
     </CasaContext.Provider>
   );

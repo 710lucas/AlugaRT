@@ -7,9 +7,10 @@ interface AvaliacaoContextType {
   createAvaliacao: (avaliacao: Omit<Avaliacao, "id">) => Avaliacao;
   updateAvaliacao: (index: number, avaliacao: Partial<Avaliacao>) => Avaliacao;
   deleteAvaliacao: (index: number) => Avaliacao[];
+  getAvaliacoesByCasaId : (casaId : number) => Avaliacao[] | undefined;
 }
 
-const AvaliacaoContext = createContext<AvaliacaoContextType | undefined>(undefined);
+export const AvaliacaoContext = createContext<AvaliacaoContextType | undefined>(undefined);
 
 export const AvaliacaoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [avaliacoes, setAvaliacoes] = useState<Avaliacao[]>(defaultDb.readAvaliacoes());
@@ -29,9 +30,12 @@ export const AvaliacaoProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     setAvaliacoes(defaultDb.readAvaliacoes());
     return defaultDb.readAvaliacoes();
   }
+  function getAvaliacoesByCasaId(casaId : number){
+    return avaliacoes.filter(a => a.casa.id === casaId)
+  }
 
   return (
-    <AvaliacaoContext.Provider value={{ avaliacoes, createAvaliacao, updateAvaliacao, deleteAvaliacao }}>
+    <AvaliacaoContext.Provider value={{ avaliacoes, createAvaliacao, updateAvaliacao, deleteAvaliacao, getAvaliacoesByCasaId }}>
       {children}
     </AvaliacaoContext.Provider>
   );

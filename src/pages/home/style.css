@@ -3,10 +3,9 @@
     min-width: 100vh;
 }
 
-.main-page{
-    padding: 2.5%;
-
-    display: flex;
-
-    gap: 2rem;
+.main-page {
+  padding: 2.5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); 
+  gap: 2rem;
 }
