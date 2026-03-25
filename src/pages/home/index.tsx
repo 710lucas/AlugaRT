@@ -1,6 +1,8 @@
+import { useContext } from "react";
 import CasaCard from "../../components/CasaCard/CasaCard";
 import Header from "../../components/Header/Header";
 import './style.css'
+import { CasaContext } from "../../contexts/CasaContext/CasaContext";
 
 export type Casa = {
     nome : string;
@@ -12,38 +14,14 @@ export type Casa = {
 
 export default function HomePage () {
 
-
-    const casas : Casa[] = [
-        {
-            nome : 'Casa Conjunto 3 Quartos',
-            descricao: 'rua abc do teste 123',
-            valor : 700,
-            status: 'Disponível',
-            imagem: 'x'
-        },
-        {
-            nome : 'Casa Conjunto 3 Quartos',
-            descricao: 'Rua abc do teste 123',
-            valor : 700,
-            status: 'Disponível',
-            imagem: 'x'
-        },
-        {
-            nome : 'Casa Conjunto 3 Quartos',
-            descricao: 'rua abc do teste 123',
-            valor : 700,
-            status: 'Disponível',
-            imagem: 'x'
-        },
-    ]
-
+    const casaContext = useContext(CasaContext)
 
     return (
         <div className="home-page-container">
             <Header/>
             <div className="main-page">
                 {
-                    casas.map((casa) => {
+                    casaContext?.casas.map((casa) => {
                         return <CasaCard casa={casa}/>
                     })
                 }
