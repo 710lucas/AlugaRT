@@ -1,0 +1,103 @@
+
+.loginPage {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg, var(--vermelho) 0%, #e06464 100%);
+    padding: 2rem 1rem;
+}
+
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.95);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 32px 0 rgba(0,0,0,0.18);
+    min-width: 320px;
+    max-width: 90vw;
+    transition: box-shadow 0.2s;
+}
+
+.loginFormContainer:hover {
+    box-shadow: 0 12px 40px 0 rgba(0,0,0,0.22);
+}
+
+.loginFormContainer h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.loginFormContainer h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.loginFormContainer input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 0.7rem;
+    font-size: 1rem;
+    background: #fafafa;
+    transition: border 0.2s, box-shadow 0.2s;
+    outline: none;
+    margin-bottom: 0.2rem;
+}
+
+.loginFormContainer input:focus {
+    border: 1.5px solid var(--vermelho);
+    box-shadow: 0 0 0 2px #ffeaea;
+}
+
+.loginFormContainer button {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: var(--vermelho);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.7rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(224,100,100,0.10);
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 0.5rem;
+}
+
+.loginFormContainer button:hover {
+    background: #b92d2d;
+    box-shadow: 0 4px 16px rgba(224,100,100,0.18);
+}
+
+@media (max-width: 500px) {
+    .loginFormContainer {
+        padding: 1.5rem 1rem 1rem 1rem;
+        min-width: unset;
+    }
+    .loginFormContainer h1 {
+        font-size: 2rem;
+    }
+}
+
+.errorMessage{
+    font-size: 0.8rem;
+    color: red;
+}
+
+.confirmMessage{
+    font-size: 0.8rem;
+    color: darkgreen;
+    max-width: 30ch;
+    text-wrap: wrap;
+    text-align: center;
+}

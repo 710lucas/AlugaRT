@@ -1,10 +1,16 @@
+import { useContext, useState } from 'react';
 import BaseIcon from '../Icon/BaseIcon';
 import QuickSearchButtons from './components/quickSearchButtons/quickSearchButtons';
 import './style.css';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 
 
 
 export default function Header() {
+
+    const authContext = useContext(AuthContext)
+
+    const [userSubmenu, setUserSubmenu] = useState(false);
 
     return (
 
@@ -27,7 +33,27 @@ export default function Header() {
                     Favoritos 
                     <BaseIcon iconName='favorite' color='red' fill={false}/>
                 </div>
-                <div className="profile-picture"></div>
+                {
+                    authContext.usuario ?
+                    <>
+                        <div className="profile-picture" onClick={() => setUserSubmenu(prev => !prev)}>
+                            {authContext.usuario?.nome.charAt(0).toUpperCase()}
+                        </div>
+                        {
+                            userSubmenu && <div className="userSubmenu">
+                                <div className="submenuButton" onClick={() => {authContext.logout()}}>
+                                    <BaseIcon iconName='door_open' color='var(--vermelho)'/>
+                                    Logout
+                                </div>
+                                <div className="submenuButton">
+                                    <BaseIcon iconName='person' color='var(--vermelho)'/>
+                                    Perfil
+                                </div>
+                            </div>
+                        }
+                    </> :
+                    <a href="/login" className="loginButton">Fazer Login</a>
+                }
             </div>
 
         </div>
