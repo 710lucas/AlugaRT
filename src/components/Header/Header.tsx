@@ -55,9 +55,15 @@ export default function Header({ onFiltersApply, onSearch, onQuickSearch }: Head
 
             {authContext.usuario ? (
                 <div className="profile-container">
-                    <div className="favorites-container" onClick={() => {document.location = '/usuario/'+authContext.usuario?.id + '?aba=favoritos'}}>
-                        Favoritos 
+
+                    <div className="submenuButton" onClick={() => {document.location='/casa/editar/new'}}>
+                        <BaseIcon iconName='add' color='var(--vermelho)'/>
+                        Adicionar Casa
+                    </div>
+
+                    <div className="submenuButton" onClick={() => {document.location = '/usuario/'+authContext.usuario?.id + '?aba=favoritos'}}>
                         <BaseIcon iconName='favorite' color='red' fill={false}/>
+                        Favoritos 
                     </div>
 
                         <div className="user-profile-wrapper">
@@ -67,13 +73,13 @@ export default function Header({ onFiltersApply, onSearch, onQuickSearch }: Head
                             
                             {userSubmenu && (
                                 <div className="userSubmenu">
-                                    <div className="submenuButton" onClick={() => authContext.logout()}>
-                                        <BaseIcon iconName='door_open' color='var(--vermelho)'/>
-                                        Logout
-                                    </div>
                                     <div className="submenuButton" onClick={() => {document.location='/usuario/'+authContext.usuario?.id}}>
                                         <BaseIcon iconName='person' color='var(--vermelho)'/>
                                         Perfil
+                                    </div>
+                                    <div className="submenuButton" onClick={() => authContext.logout()}>
+                                        <BaseIcon iconName='door_open' color='var(--vermelho)'/>
+                                        Logout
                                     </div>
                                 </div>
                             )}
