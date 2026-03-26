@@ -53,35 +53,41 @@ export default function Header({ onFiltersApply, onSearch, onQuickSearch }: Head
                 </div>
             </div>
 
-            <div className="profile-container">
-                <div className="favorites-container">
-                    Favoritos 
-                    <BaseIcon iconName='favorite' color='red' fill={false}/>
-                </div>
+            {authContext.usuario ? (
+                <div className="profile-container">
 
-                {authContext.usuario ? (
-                    <div className="user-profile-wrapper">
-                        <div className="profile-picture" onClick={() => setUserSubmenu(prev => !prev)}>
-                            {authContext.usuario?.nome.charAt(0).toUpperCase()}
-                        </div>
-                        
-                        {userSubmenu && (
-                            <div className="userSubmenu">
-                                <div className="submenuButton" onClick={() => authContext.logout()}>
-                                    <BaseIcon iconName='door_open' color='var(--vermelho)'/>
-                                    Logout
-                                </div>
-                                <div className="submenuButton" onClick={() => {document.location='/usuario/'+authContext.usuario?.id}}>
-                                    <BaseIcon iconName='person' color='var(--vermelho)'/>
-                                    Perfil
-                                </div>
-                            </div>
-                        )}
+                    <div className="submenuButton" onClick={() => {document.location='/casa/editar/new'}}>
+                        <BaseIcon iconName='add' color='var(--vermelho)'/>
+                        Adicionar Casa
                     </div>
-                ) : (
+
+                    <div className="submenuButton" onClick={() => {document.location = '/usuario/'+authContext.usuario?.id + '?aba=favoritos'}}>
+                        <BaseIcon iconName='favorite' color='red' fill={false}/>
+                        Favoritos 
+                    </div>
+
+                        <div className="user-profile-wrapper">
+                            <div className="profile-picture" onClick={() => setUserSubmenu(prev => !prev)}>
+                                {authContext.usuario?.nome.charAt(0).toUpperCase()}
+                            </div>
+                            
+                            {userSubmenu && (
+                                <div className="userSubmenu">
+                                    <div className="submenuButton" onClick={() => {document.location='/usuario/'+authContext.usuario?.id}}>
+                                        <BaseIcon iconName='person' color='var(--vermelho)'/>
+                                        Perfil
+                                    </div>
+                                    <div className="submenuButton" onClick={() => authContext.logout()}>
+                                        <BaseIcon iconName='door_open' color='var(--vermelho)'/>
+                                        Logout
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                </div>
+                ):(
                     <a href="/login" className="loginButton">Fazer Login</a>
-                )}
-            </div>
+            )}
 
             {filterModal && <FilterModal onClose={() => setFilterModal(false)} onApplyFilters={onFiltersApply} />}
         </div>

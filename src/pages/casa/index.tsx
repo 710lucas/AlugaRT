@@ -39,6 +39,24 @@ export default function CasaDetalhesPage() {
     const usuarioContext = useContext(UsuarioContext);
     const authContext = useContext(AuthContext);
 
+    function handleFavoritar(){
+
+        let index = usuarioContext?.usuarios.findIndex(u => u.id == authContext.usuario?.id) as number
+
+        if(authContext.usuario?.favoritos.find(c => c.id === casa?.id)){
+            usuarioContext?.updateUsuario(index, {...authContext.usuario, favoritos: authContext.usuario.favoritos.filter(c => c.id !== casa?.id)})
+            alert("Casa removida com sucesso")
+            location.reload()
+            return;
+        }
+
+        usuarioContext?.updateUsuario(index, {...authContext.usuario, favoritos: [...authContext.usuario?.favoritos ?? [], casa as Casa]})
+
+        alert("Casa favoritada com sucesso")
+        location.reload()
+        
+    }
+
     useEffect(() => {
         try{
             const casaId = Number(window.location.pathname.split('/').filter(Boolean).pop())
@@ -153,17 +171,35 @@ export default function CasaDetalhesPage() {
                                     {renderEstrelas(casa?.avaliacao ?? 0, 32)}
                                     <ActionButton name="Avalie a casa" cor="#FF5A5F" action={() => document.location='/feedback/'+casa?.id} />
                                 </div>
-                                <div className="favoritar-btn">
-                                    <span>Favoritar</span>
-                                    <BaseIcon iconName="favorite" color="#FF5A5F" fill={false} />
+                                <div className="favoritar-btn" onClick={handleFavoritar}>
+                                    {authContext.usuario?.favoritos.find(c => c.id === casa?.id) !== undefined ? 
+                                        <>
+                                            <span>Desfavoritar</span>
+                                            <BaseIcon iconName="favorite" color="#FF5A5F" fill={true} />
+                                        </>
+                                        :
+                                        <>
+                                            <span>Favoritar</span>
+                                            <BaseIcon iconName="favorite" color="#FF5A5F" fill={false} />
+                                        </>
+                                    }
                                 </div>
                             </div>
                         )}
                         {perfilUsuario === 'visitante' && (
                             <div className="modo-visitante-acoes">
-                                <div className="favoritar-btn">
-                                    <span>Favoritar</span>
-                                    <BaseIcon iconName="favorite" color="#FF5A5F" fill={false} />
+                                <div className="favoritar-btn" onClick={handleFavoritar}>
+                                    {authContext.usuario?.favoritos.find(c => c.id === casa?.id) !== undefined ? 
+                                        <>
+                                            <span>Desfavoritar</span>
+                                            <BaseIcon iconName="favorite" color="#FF5A5F" fill={true} />
+                                        </>
+                                        :
+                                        <>
+                                            <span>Favoritar</span>
+                                            <BaseIcon iconName="favorite" color="#FF5A5F" fill={false} />
+                                        </>
+                                    }
                                 </div>
                             </div>
                         )}

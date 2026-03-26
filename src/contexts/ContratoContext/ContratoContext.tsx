@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
-import { db as defaultDb} from "../MockDatabase";
+import React, { createContext, useState } from "react";
+import { db as defaultDb } from "../MockDatabase";
 import { Contrato } from "../../types/Contrato";
 
 interface ContratoContextType {

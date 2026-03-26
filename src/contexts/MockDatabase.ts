@@ -197,9 +197,9 @@ export class MockDatabase {
         this.persist();
     }
 
-    adicionarAvaliacaoParaCasa(casaIndex: number, avaliacao: Avaliacao): void {
-        // Lógica futura caso adicione o array de avaliações em Casa.
-    }
+    // adicionarAvaliacaoParaCasa(casaIndex: number, avaliacao: Avaliacao): void {
+    //     // Lógica futura caso adicione o array de avaliações em Casa.
+    // }
 
     resetDatabase() {
         const data = getDefaultData();

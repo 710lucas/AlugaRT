@@ -11,7 +11,7 @@ import { UsuarioContext } from "../../contexts/UsuarioContext/UsuarioContext";
 import { Casa } from "../../types/Casa";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
-export function FeedbackPage(props: any) {
+export function FeedbackPage() {
 
     const [notaCasa, setNotaCasa] = useState(0);
     const [notaLocador, setNotaLocador] = useState(0);

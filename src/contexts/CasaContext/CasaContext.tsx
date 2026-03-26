@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
-import { db as defaultDb} from "../MockDatabase";
+import React, { createContext, useState } from "react";
+import { db as defaultDb } from "../MockDatabase";
 import { Casa } from "../../types/Casa";
 
 interface CasaContextType {
@@ -7,7 +7,7 @@ interface CasaContextType {
   createCasa: (casa: Omit<Casa, "id">) => Casa;
   updateCasa: (index: number, casa: Partial<Casa>) => Casa;
   deleteCasa: (index: number) => Casa[];
-  getCasaById: (id : number) => Casa | undefined;
+  getCasaById: (id: number) => Casa | undefined;
 }
 
 export const CasaContext = createContext<CasaContextType | undefined>(undefined);
@@ -30,7 +30,7 @@ export const CasaProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setCasas(defaultDb.readCasas());
     return defaultDb.readCasas();
   }
-  function getCasaById(id : number){
+  function getCasaById(id: number) {
     return defaultDb.readCasas().find(c => c.id === id);
   }
 
