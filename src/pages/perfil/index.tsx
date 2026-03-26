@@ -1,6 +1,6 @@
 
 import { useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 import './style.css';
 import ProfileImage from '../../components/ProfileImage/ProfileImage';
 import BaseIcon from '../../components/Icon/BaseIcon';
@@ -26,6 +26,7 @@ type Aba = 'feedbacks' | 'contratos' | 'favoritos' | 'pendente' | 'casas';
 
 export default function PerfilUsuarioPage() {
     const { id } = useParams();
+    const [searchParams] = useSearchParams();
     const { usuario: usuarioLogado } = useContext(AuthContext);
     const usuarioContext = useContext(UsuarioContext);
     const avaliacaoContext = useContext(AvaliacaoContext);
@@ -80,7 +81,11 @@ export default function PerfilUsuarioPage() {
     const telefone = usuario.telefone ? usuario.telefone.toString().replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3') : '';
     const mediaAvaliacao = feedbacks.length > 0 ? Math.round(feedbacks.map(a => a.notaCasa).reduce((acc, n) => acc + n, 0) / feedbacks.length) : 0;
 
-    const [aba, setAba] = useState<Aba>(isLocador || isSelf ? 'casas' : 'feedbacks');
+    // Define aba inicial pelo query param, se existir e for válida
+    const abaParam = searchParams.get('aba') as Aba | null;
+    const abasValidas: Aba[] = ['feedbacks', 'contratos', 'favoritos', 'pendente', 'casas'];
+    const abaInicial: Aba = abaParam && abasValidas.includes(abaParam) ? abaParam : (isLocador || isSelf ? 'casas' : 'feedbacks');
+    const [aba, setAba] = useState<Aba>(abaInicial);
 
     return (
         <div className="perfil-desktop-bg">
