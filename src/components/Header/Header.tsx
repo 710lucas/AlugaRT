@@ -8,12 +8,15 @@ import { Filtros } from '../../pages/home/index';
 
 interface HeaderProps {
     onFiltersApply?: (filtros: Filtros) => void;
+    onSearch?: (searchTerm: string) => void;
+    onQuickSearch?: (type: 'casas' | 'apartamentos' | 'disponiveis', active: boolean) => void;
 }
 
-export default function Header({ onFiltersApply }: HeaderProps) {
+export default function Header({ onFiltersApply, onSearch, onQuickSearch }: HeaderProps) {
     const authContext = useContext(AuthContext);
     const [userSubmenu, setUserSubmenu] = useState(false);
     const [filterModal, setFilterModal] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
 
     return (
         <div className="header-container">
@@ -31,6 +34,11 @@ export default function Header({ onFiltersApply }: HeaderProps) {
                         type="text" 
                         className="search-bar" 
                         placeholder='O que você procura?' 
+                        value={searchTerm}
+                        onChange={(e) => {
+                            setSearchTerm(e.target.value);
+                            onSearch?.(e.target.value);
+                        }}
                     />
 
                     <div className="search-lupa-btn">
@@ -39,9 +47,9 @@ export default function Header({ onFiltersApply }: HeaderProps) {
                 </div>
 
                 <div className="quick-search-buttons-container">
-                    <QuickSearchButtons name='Casas' onClick={() => {}}/>
-                    <QuickSearchButtons name='Apartamentos' onClick={() => {}}/>
-                    <QuickSearchButtons name='Disponíveis' onClick={() => {}}/>
+                    <QuickSearchButtons name='Casas' onClick={(clicked) => onQuickSearch?.('casas', clicked)}/>
+                    <QuickSearchButtons name='Apartamentos' onClick={(clicked) => onQuickSearch?.('apartamentos', clicked)}/>
+                    <QuickSearchButtons name='Disponíveis' onClick={(clicked) => onQuickSearch?.('disponiveis', clicked)}/>
                 </div>
             </div>
 
