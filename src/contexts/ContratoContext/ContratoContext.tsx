@@ -9,7 +9,7 @@ interface ContratoContextType {
   deleteContrato: (index: number) => Contrato[];
 }
 
-const ContratoContext = createContext<ContratoContextType | undefined>(undefined);
+export const ContratoContext = createContext<ContratoContextType | undefined>(undefined);
 
 export const ContratoProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [contratos, setContratos] = useState<Contrato[]>(defaultDb.readContratos());

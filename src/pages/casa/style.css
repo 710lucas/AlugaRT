@@ -192,6 +192,15 @@ header, .header-container {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+}
+
+.header-dono:hover {
+    background-color: rgb(255, 90, 95, 0.15);
 }
 
 .perfil-flex {

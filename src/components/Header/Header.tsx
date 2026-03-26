@@ -71,7 +71,7 @@ export default function Header({ onFiltersApply, onSearch, onQuickSearch }: Head
                                     <BaseIcon iconName='door_open' color='var(--vermelho)'/>
                                     Logout
                                 </div>
-                                <div className="submenuButton">
+                                <div className="submenuButton" onClick={() => {document.location='/usuario/'+authContext.usuario?.id}}>
                                     <BaseIcon iconName='person' color='var(--vermelho)'/>
                                     Perfil
                                 </div>

@@ -171,11 +171,11 @@ export default function CasaDetalhesPage() {
                 </div>
                 <div className="coluna-info">
                     <div className="header-dono">
-                        <div className="perfil-flex">
+                        <div className="perfil-flex" onClick={() => {document.location = '/usuario/'+casa?.proprietario.id}}>
                             <ProfileImage size={55} />
                             <div className='info-proprietario'>
                                 <h3 className="nome-dono">{casa?.proprietario.nome}</h3>
-                                <p className="stats-dono">{casa ? casa.proprietario.casas?.length : ''} imoveis na plataforma | {casa ? calcularAnosInteiros(casa.proprietario.createdAt, new Date()) : ''} anos na plataforma</p>
+                                <p className="stats-dono">{casa ? casa.proprietario.casas?.length : ''} imoveis  | {casa ? calcularAnosInteiros(casa.proprietario.createdAt, new Date()) : ''} anos na plataforma</p>
                             </div>
                         </div>
                         <div className="whatsapp-circle">

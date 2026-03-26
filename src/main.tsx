@@ -11,6 +11,8 @@ import { UsuarioProvider } from './contexts/UsuarioContext/UsuarioContext.tsx'
 import { AvaliacaoProvider } from './contexts/AvaliacaoContext/AvaliacaoContext.tsx'
 import { FeedbackPage } from './pages/feedback/index.tsx'
 import { CriarCasaPage } from './pages/criar-casa/index.tsx'
+import { ContratoProvider } from './contexts/ContratoContext/ContratoContext.tsx'
+import PerfilUsuarioPage from './pages/perfil/index.tsx'
 
 
 const router = createBrowserRouter([
@@ -57,6 +59,19 @@ const router = createBrowserRouter([
     <CasaProvider>
       <UsuarioProvider>
         <CriarCasaPage />,
+      </UsuarioProvider>
+    </CasaProvider>
+  },
+  {
+    path: "/usuario/:id", 
+    element: 
+    <CasaProvider>
+      <UsuarioProvider>
+        <ContratoProvider>
+          <AvaliacaoProvider>
+            <PerfilUsuarioPage/>
+          </AvaliacaoProvider>
+        </ContratoProvider>
       </UsuarioProvider>
     </CasaProvider>
   }
