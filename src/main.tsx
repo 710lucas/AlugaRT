@@ -9,6 +9,7 @@ import { CasaProvider } from './contexts/CasaContext/CasaContext.tsx'
 import CasaDetalhesPage from './pages/casa/index.tsx'
 import { UsuarioProvider } from './contexts/UsuarioContext/UsuarioContext.tsx'
 import { AvaliacaoProvider } from './contexts/AvaliacaoContext/AvaliacaoContext.tsx'
+import { FeedbackPage } from './pages/feedback/index.tsx'
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,17 @@ const router = createBrowserRouter([
       <UsuarioProvider>
         <AvaliacaoProvider>
           <CasaDetalhesPage />,
+        </AvaliacaoProvider>
+      </UsuarioProvider>
+    </CasaProvider>
+  },
+  {
+    path: "/feedback/:id", 
+    element: 
+    <CasaProvider>
+      <UsuarioProvider>
+        <AvaliacaoProvider>
+          <FeedbackPage />,
         </AvaliacaoProvider>
       </UsuarioProvider>
     </CasaProvider>
