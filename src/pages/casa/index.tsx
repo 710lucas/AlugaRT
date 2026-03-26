@@ -12,6 +12,7 @@ import { Usuario } from '../../types/Usuario';
 import { UsuarioContext } from '../../contexts/UsuarioContext/UsuarioContext';
 import { calcularAnosInteiros } from '../../utils/calcularAnosInteiros';
 import { Avaliacao } from '../../types/Avaliacao';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 
 const renderEstrelas = (avaliacao: number, size: number = 16) => {
     return Array.from({ length: 5 }, (_, index) => (
@@ -26,7 +27,7 @@ const renderEstrelas = (avaliacao: number, size: number = 16) => {
 };
 
 export default function CasaDetalhesPage() {
-    const [perfilUsuario] = useState<'proprietario' | 'locador' | 'visitante'>('locador');
+    const [perfilUsuario, setPerfilUsuario] = useState<'proprietario' | 'locador' | 'visitante' | undefined>();
     const [casa, setCasa] = useState<Casa & {
         avaliacao : number; 
         proprietario : Usuario;
@@ -36,12 +37,14 @@ export default function CasaDetalhesPage() {
     const casaContext = useContext(CasaContext);
     const avaliacaoContext = useContext(AvaliacaoContext);
     const usuarioContext = useContext(UsuarioContext);
+    const authContext = useContext(AuthContext);
 
     useEffect(() => {
         try{
             const casaId = Number(window.location.pathname.split('/').filter(Boolean).pop())
             const avaliacoes_ : any = avaliacaoContext?.getAvaliacoesByCasaId(casaId) ?? []
             let casa_ : any = casaContext?.getCasaById(casaId)
+
             if(casa_ === undefined){
                 console.log("casas")
                 throw new Error("Casa não encontrada, casaId="+casaId)
@@ -57,21 +60,28 @@ export default function CasaDetalhesPage() {
 
             casa_!.proprietario = locador;
 
-            console.log("avaliacoes", avaliacoes_)
-
             avaliacoes_.forEach((avaliacao : Avaliacao & {avaliador : Usuario}) => {
                 let usuario_ = usuarioContext?.getUsuarioByAvaliacaoId(avaliacao.id);
                 if(usuario_)
                     avaliacao.avaliador = usuario_
             });
 
+            console.log("usuario: ", authContext.usuario)
+            console.log("Locador: ", locador)
 
             setCasa(casa_)
             setAvaliacoes(avaliacoes_ ?? [])
+            setPerfilUsuario(
+                authContext?.usuario?.id === locador.id
+                    ? 'proprietario'
+                    : authContext?.usuario?.contratos.some(c => c.casa.id === casa_?.id)
+                    ? 'locador'
+                    : 'visitante'
+            )
         } catch(err){
             console.error(err)
         }
-    }, [])
+    }, [casaContext, avaliacaoContext, authContext])
 
     // const casa = {
     //     nome: "Casa Conjunto 3 quartos",
@@ -134,7 +144,7 @@ export default function CasaDetalhesPage() {
                             <div className="modo-proprietario-acoes">
                                 <span className="txt-interessados">8 Interessados</span>
                                 <ActionButton name="Ver interessados" cor="#FF5A5F" action={() => {}} />
-                                <ActionButton name="Editar Casa" cor="#FF5A5F" icon="edit" action={() => {}} />
+                                <ActionButton name="Editar Casa" cor="#FF5A5F" icon="edit" action={() => {document.location = '/casa/editar/'+casa?.id}} />
                             </div>
                         )}
                         {perfilUsuario === 'locador' && (
@@ -186,9 +196,11 @@ export default function CasaDetalhesPage() {
                     <hr className="linha-separadora" />
 
                     <div className="tags-container-grid">
-                        <TagParaCasa name="3 quartos" />
-                        <TagParaCasa name="2 banheiros" />
-                        <TagParaCasa name="Garagem 2 Carros" />
+                        {
+                            casa?.tags.map(t => (
+                                <TagParaCasa name={t} />
+                            ))
+                        }
                     </div>
                 </div>
             </div>

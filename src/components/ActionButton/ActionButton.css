@@ -1,16 +1,36 @@
-.button-container{
-    background-color: var(--vermelho);
-    border-radius: 0.65rem;
-    padding: 0.5rem 0.75rem;
-
+.button-container {
+    background: var(--vermelho, #e53935);
+    border-radius: 0.75rem;
+    padding: 0.65rem 1.5rem;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.6rem;
     width: fit-content;
-    color: white;
+    color: #fff;
     height: fit-content;
     cursor: pointer;
+    font-size: 1.08rem;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(229,57,53,0.08);
+    border: none;
+    outline: none;
+    transition: background 0.2s, box-shadow 0.2s, color 0.2s, transform 0.15s;
+    user-select: none;
 }
 
-.button-name::selection{
+.button-container:hover, .button-container:focus {
+    background: var(--vermelho-escuro, #b71c1c);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(229,57,53,0.18);
+    transform: translateY(-2px) scale(1.03);
+}
+
+.button-container:active {
+    background: var(--vermelho, #e53935);
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(229,57,53,0.10);
+    transform: scale(0.98);
+}
+
+.button-name::selection {
     background-color: transparent;
 }
