@@ -1,3 +1,80 @@
+.image-link-input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    background: var(--cinza-claro, #f5f5f5);
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.image-link-input {
+    border: 1.5px solid var(--cinza, #bdbdbd);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    outline: none;
+    min-width: 18rem;
+    background: white;
+    transition: border 0.2s;
+}
+.image-link-input:focus {
+    border: 1.5px solid var(--azul, #1976d2);
+}
+
+.image-link-confirm, .image-link-cancel {
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.image-link-confirm {
+    background: var(--azul, #1976d2);
+    color: white;
+    margin-right: 0.25rem;
+}
+.image-link-confirm:hover {
+    background: var(--azul-escuro, #115293);
+}
+.image-link-cancel {
+    background: var(--cinza, #bdbdbd);
+    color: #222;
+}
+.image-link-cancel:hover {
+    background: var(--vermelho, #e57373);
+    color: white;
+}
+
+.image-link-error {
+    color: var(--vermelho, #e57373);
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
+
+.image-input-link-button {
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    background: var(--cinza-claro, #f5f5f5);
+    border: 1.5px solid var(--cinza, #bdbdbd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+    transition: background 0.2s, border 0.2s;
+}
+.image-input-link-button:hover {
+    background: var(--azul, #1976d2);
+    border: 1.5px solid var(--azul, #1976d2);
+    color: white;
+}
 .container-imagens{
     display: flex;
     flex-direction: column;
