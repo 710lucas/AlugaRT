@@ -31,7 +31,8 @@ export const AvaliacaoProvider: React.FC<{ children: React.ReactNode }> = ({ chi
     return defaultDb.readAvaliacoes();
   }
   function getAvaliacoesByCasaId(casaId : number){
-    return avaliacoes.filter(a => a.casa.id === casaId)
+    console.log("todas avaliações: ", defaultDb.readAvaliacoes())
+    return defaultDb.readAvaliacoes().filter(a => a.casa.id === casaId)
   }
 
   return (

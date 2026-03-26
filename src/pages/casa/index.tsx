@@ -57,6 +57,8 @@ export default function CasaDetalhesPage() {
 
             casa_!.proprietario = locador;
 
+            console.log("avaliacoes", avaliacoes_)
+
             avaliacoes_.forEach((avaliacao : Avaliacao & {avaliador : Usuario}) => {
                 let usuario_ = usuarioContext?.getUsuarioByAvaliacaoId(avaliacao.id);
                 if(usuario_)
@@ -139,7 +141,7 @@ export default function CasaDetalhesPage() {
                             <div className="modo-locador-acoes">
                                 <div className="estrelas-avaliacao-grande">
                                     {renderEstrelas(casa?.avaliacao ?? 0, 32)}
-                                    <ActionButton name="Avalie a casa" cor="#FF5A5F" action={() => alert("Avaliar")} />
+                                    <ActionButton name="Avalie a casa" cor="#FF5A5F" action={() => document.location='/feedback/'+casa?.id} />
                                 </div>
                                 <div className="favoritar-btn">
                                     <span>Favoritar</span>
