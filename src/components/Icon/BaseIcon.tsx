@@ -5,13 +5,12 @@ export type BaseIconProps = {
     size? : number;
     fill? : boolean;
     color? : string;
-    borderSize? : number;
 }
 
 
 export default function BaseIcon (props : BaseIconProps) {
 
-    const {size = 24, iconName, color = 'black', fill = false, borderSize = 1} = props;
+    const {size = 24, iconName, color = 'black', fill = false} = props;
 
     return (
         <div className="base-icon-container">

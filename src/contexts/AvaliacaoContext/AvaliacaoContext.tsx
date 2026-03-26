@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { db as defaultDb} from "../MockDatabase";
 import { Avaliacao } from "../../types/Avaliacao";
 

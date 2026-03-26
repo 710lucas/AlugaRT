@@ -23,7 +23,6 @@ export default function ImageInput(props : ImageInputProps){
     const {
         imagens,
         setImagens,
-        max
     } = props;
 
     const fileInputRef = useRef<HTMLInputElement>(null)
@@ -71,7 +70,7 @@ export default function ImageInput(props : ImageInputProps){
     }
 
     async function handleDelete (indexToRemove : number) {
-        let imagens_ = imagens.filter((img, index) => index !== indexToRemove);
+        let imagens_ = imagens.filter((_, index) => index !== indexToRemove);
         setImagens(imagens_)
     }
 

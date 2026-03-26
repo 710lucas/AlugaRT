@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from "react"
-import "./style.css"
-import { AuthContext } from "../../contexts/AuthContext/AuthContext"
+import { useContext, useState } from "react";
+import "./style.css";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
-export default function LoginPage(props : any){
+export default function LoginPage(){
 
 
     const authContext = useContext(AuthContext);
