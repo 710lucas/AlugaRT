@@ -1,0 +1,233 @@
+
+
+/* Layout principal */
+.perfil-desktop-bg {
+
+.perfil-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.perfil-bg {
+	gap: 10px;
+	margin-bottom: 30px;
+}
+
+.perfil-nome {
+	font-size: 2.1rem;
+    margin: 0;
+    margin-top: 1rem;
+}
+.perfil-card {
+	font-weight: 700;
+	margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    gap:2rem;
+}
+
+.perfil-estrelas {
+	display: flex;
+	gap: 2px;
+	margin: 0 0 2px 0;
+}
+
+}
+.perfil-info {
+	color: #444;
+	font-size: 1.05rem;
+	margin-bottom: 2px;
+}
+
+.perfil-telefone {
+	font-weight: bold;
+	font-size: 1.1rem;
+	color: #232323;
+	margin-bottom: 10px;
+}
+
+.perfil-abas {
+	display: flex;
+	justify-content: center;
+	gap: 30px;
+	margin-bottom: 25px;
+	width: 100%;
+}
+.perfil-aba-btn {
+	background: none;
+	border: none;
+	font-size: 1.15rem;
+	font-weight: 600;
+	color: #888;
+	cursor: pointer;
+	padding: 0 0 6px 0;
+	border-bottom: 3px solid transparent;
+	transition: color 0.2s, border 0.2s;
+}
+.perfil-aba-btn.ativo {
+	color: #232323;
+	border-bottom: 3px solid #FF5A5F;
+}
+
+.perfil-conteudo {
+	width: 100%;
+	max-width: 700px;
+	min-height: 180px;
+}
+
+/* Feedbacks */
+.perfil-feedbacks-lista {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+.perfil-feedback-card {
+	background: #fafafa;
+	border-radius: 12px;
+	padding: 16px 18px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+.perfil-feedback-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.perfil-feedback-estrelas {
+	display: flex;
+	gap: 2px;
+}
+.perfil-feedback-texto {
+	color: #232323;
+	font-size: 1.08rem;
+	margin-left: 52px;
+}
+
+/* Contratos */
+.perfil-contratos-lista {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+.perfil-contrato-card {
+	background: #fafafa;
+	border-radius: 12px;
+	padding: 16px 18px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	font-size: 1.08rem;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 2px;
+}
+.perfil-contrato-card .contrato-nome {
+	font-size: 1.13rem;
+	font-weight: 700;
+	color: #232323;
+	margin-bottom: 2px;
+}
+.perfil-contrato-card .contrato-info {
+	color: #555;
+	font-size: 1.01rem;
+	margin-bottom: 0px;
+}
+.perfil-contrato-card .contrato-status {
+	font-weight: 600;
+	font-size: 1.01rem;
+	margin-top: 2px;
+	color: #FF5A5F;
+	letter-spacing: 0.5px;
+}
+.perfil-contrato-pendente {
+	background: #fff3e0;
+	border-radius: 10px;
+	padding: 13px 16px;
+	color: #b26a00;
+	font-weight: 600;
+	box-shadow: 0 1px 4px rgba(255,90,95,0.08);
+}
+
+/* Favoritos */
+.perfil-favoritos-lista {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+.perfil-favorito-card {
+	background: #fafafa;
+	border-radius: 12px;
+	padding: 16px 18px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+	font-size: 1.08rem;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+	transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+	text-decoration: none;
+}
+.perfil-favorito-card:hover {
+	background: #f5eaea;
+	box-shadow: 0 4px 16px rgba(255,90,95,0.13);
+	transform: scale(1.015);
+}
+.perfil-favorito-img {
+	width: 72px;
+	height: 72px;
+	border-radius: 12px;
+	object-fit: cover;
+	background: #e0e0e0;
+	flex-shrink: 0;
+	transition: box-shadow 0.18s, transform 0.18s;
+	cursor: pointer;
+	box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+}
+.perfil-favorito-img:hover {
+	box-shadow: 0 4px 16px rgba(255,90,95,0.13);
+	transform: scale(1.04);
+}
+.perfil-favorito-info {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+.perfil-favorito-nome {
+	font-size: 1.13rem;
+	font-weight: 700;
+	color: #232323;
+}
+.perfil-favorito-endereco {
+	color: #555;
+	font-size: 1.01rem;
+}
+
+.perfil-sem-feedback {
+	color: #888;
+	text-align: center;
+	margin: 30px 0 10px 0;
+	font-size: 1.1rem;
+}
+
+@media (max-width: 700px) {
+	.perfil-card {
+		padding: 20px 0 10px 0;
+		min-height: unset;
+	}
+	.perfil-header {
+		gap: 6px;
+	}
+	.perfil-nome {
+		font-size: 1.3rem;
+	}
+	.perfil-conteudo {
+		max-width: 98vw;
+	}
+	.perfil-bg {
+		padding: 16px 0 0 0;
+	}
+}
