@@ -28,6 +28,25 @@ export default function ImageInput(props : ImageInputProps){
 
     const fileInputRef = useRef<HTMLInputElement>(null)
     const [isHovering, setIsHovering] = useState<number | undefined>(undefined)
+    const [showLinkInput, setShowLinkInput] = useState(false);
+    const [linkValue, setLinkValue] = useState("");
+    const [linkError, setLinkError] = useState("");
+    // Função para validar se o link é de imagem
+    function isValidImageUrl(url: string) {
+        return /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|bmp|svg)$/i.test(url);
+    }
+
+    // Adiciona imagem por link
+    function handleAddImageByLink() {
+        if (!isValidImageUrl(linkValue)) {
+            setLinkError("URL inválida ou não é uma imagem suportada.");
+            return;
+        }
+        setImagens([...imagens, linkValue]);
+        setLinkValue("");
+        setShowLinkInput(false);
+        setLinkError("");
+    }
 
     const processFiles = async (files : File[]) => {
         try{
@@ -58,6 +77,7 @@ export default function ImageInput(props : ImageInputProps){
 
     return (
         <div className="container-imagens">
+            {/* Imagem principal */}
             {
                 imagens[0] !== undefined &&
                 <div onMouseEnter={() => {setIsHovering(0)}} onMouseLeave={() => {setIsHovering(undefined)}} className="image-uploaded-container">
@@ -72,10 +92,11 @@ export default function ImageInput(props : ImageInputProps){
                 </div>
             }
             <div className="imagens-secundarias-container">
+                {/* Imagens secundárias */}
                 {imagens.map((img, index) => (
                     index !== 0 &&
-                    <div onMouseEnter={() => {setIsHovering(index)}} onMouseLeave={() => {setIsHovering(undefined)}} className="image-uploaded-container">
-                        <img src={img} key={index} alt="" className="imagens-secundarias" />
+                    <div onMouseEnter={() => {setIsHovering(index)}} onMouseLeave={() => {setIsHovering(undefined)}} className="image-uploaded-container" key={index}>
+                        <img src={img} alt="" className="imagens-secundarias" />
                         {
                             isHovering === index &&
                                 <div className="delete-image delete-image-secundaria" onClick={() => handleDelete(index)}>
@@ -93,7 +114,36 @@ export default function ImageInput(props : ImageInputProps){
                 >
                     <BaseIcon iconName="add" size={32}/>
                 </button>
+                {/* Botão para adicionar por link */}
+                <button
+                    type="button"
+                    className="image-input-button image-input-link-button"
+                    style={{ marginLeft: 8 }}
+                    onClick={() => setShowLinkInput((v) => !v)}
+                >
+                    <BaseIcon iconName="link" size={24}/>
+                </button>
             </div>
+            {/* Input para link de imagem */}
+            {showLinkInput && (
+                <div className="image-link-input-container">
+                    <input
+                        type="text"
+                        placeholder="Cole o link da imagem (jpg, png, etc)"
+                        value={linkValue}
+                        onChange={e => { setLinkValue(e.target.value); setLinkError(""); }}
+                        className="image-link-input"
+                        style={{ marginRight: 8 }}
+                    />
+                    <button type="button" className="image-link-confirm" onClick={handleAddImageByLink}>
+                        Adicionar
+                    </button>
+                    <button type="button" className="image-link-cancel" onClick={() => { setShowLinkInput(false); setLinkValue(""); setLinkError(""); }}>
+                        Cancelar
+                    </button>
+                    {linkError && <div className="image-link-error">{linkError}</div>}
+                </div>
+            )}
         </div>
     )
 

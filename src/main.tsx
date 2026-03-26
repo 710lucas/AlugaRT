@@ -10,6 +10,7 @@ import CasaDetalhesPage from './pages/casa/index.tsx'
 import { UsuarioProvider } from './contexts/UsuarioContext/UsuarioContext.tsx'
 import { AvaliacaoProvider } from './contexts/AvaliacaoContext/AvaliacaoContext.tsx'
 import { FeedbackPage } from './pages/feedback/index.tsx'
+import { CriarCasaPage } from './pages/criar-casa/index.tsx'
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,15 @@ const router = createBrowserRouter([
       </UsuarioProvider>
     </CasaProvider>
   },
+  {
+    path: "/casa/editar/:id", 
+    element: 
+    <CasaProvider>
+      <UsuarioProvider>
+        <CriarCasaPage />,
+      </UsuarioProvider>
+    </CasaProvider>
+  }
 ])
 
 createRoot(document.getElementById('root')!).render(
