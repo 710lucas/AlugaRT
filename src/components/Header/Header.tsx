@@ -56,10 +56,13 @@ export default function Header({ onFiltersApply, onSearch, onQuickSearch }: Head
             {authContext.usuario ? (
                 <div className="profile-container">
 
-                    <div className="submenuButton" onClick={() => {document.location='/casa/editar/new'}}>
-                        <BaseIcon iconName='add' color='var(--vermelho)'/>
-                        Adicionar Casa
-                    </div>
+                    {
+                        authContext.usuario.role === 'locador' && 
+                        <div className="submenuButton" onClick={() => {document.location='/casa/editar/new'}}>
+                            <BaseIcon iconName='add' color='var(--vermelho)'/>
+                            Adicionar Casa
+                        </div>
+                    }
 
                     <div className="submenuButton" onClick={() => {document.location = '/usuario/'+authContext.usuario?.id + '?aba=favoritos'}}>
                         <BaseIcon iconName='favorite' color='red' fill={false}/>
