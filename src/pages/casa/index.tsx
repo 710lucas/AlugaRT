@@ -213,11 +213,7 @@ export default function CasaDetalhesPage() {
                         )}
                         {perfilUsuario === 'visitante' && (
                             <div className="modo-visitante-acoes">
-                                <ActionButton 
-                                    name="Expressar interesse" 
-                                    cor="#28A745" 
-                                    action={handleExpressarInteresse} 
-                                />
+
                                 <div className="favoritar-btn" onClick={handleFavoritar}>
                                     {authContext.usuario?.favoritos.find(c => c.id === casa?.id) !== undefined ? 
                                         <>
@@ -231,6 +227,11 @@ export default function CasaDetalhesPage() {
                                         </>
                                     }
                                 </div>
+                                <ActionButton 
+                                    name="Expressar interesse" 
+                                     
+                                    action={handleExpressarInteresse} 
+                                />
                             </div>
                         )}
                     </div>
