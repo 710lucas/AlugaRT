@@ -13,6 +13,7 @@ import { FeedbackPage } from './pages/feedback/index.tsx'
 import { CriarCasaPage } from './pages/criar-casa/index.tsx'
 import { ContratoProvider } from './contexts/ContratoContext/ContratoContext.tsx'
 import PerfilUsuarioPage from './pages/perfil/index.tsx'
+import InteressadosPage from './pages/interessados/index.tsx'
 
 
 const router = createBrowserRouter([
@@ -71,6 +72,17 @@ const router = createBrowserRouter([
           <AvaliacaoProvider>
             <PerfilUsuarioPage/>
           </AvaliacaoProvider>
+        </ContratoProvider>
+      </UsuarioProvider>
+    </CasaProvider>
+  },
+  {
+    path: "/casa/:id/interessados",
+    element:
+    <CasaProvider>
+      <UsuarioProvider>
+        <ContratoProvider>
+          <InteressadosPage/>
         </ContratoProvider>
       </UsuarioProvider>
     </CasaProvider>

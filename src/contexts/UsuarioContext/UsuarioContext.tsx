@@ -32,7 +32,6 @@ export const UsuarioProvider: React.FC<{ children: React.ReactNode }> = ({ child
     return defaultDb.readUsuarios();
   }
   function getProprietarioByCasaId(casaId : number){
-    console.log("locadores: ", usuarios.filter(u => u.role === 'locador'))
     return usuarios.filter(u => u.role === 'locador').find(u => u.casas?.find(c => c.id === casaId) !== undefined)
   }
   function getUsuarioByAvaliacaoId(avaliacaoId : number){

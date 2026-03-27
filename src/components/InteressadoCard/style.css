@@ -1,0 +1,83 @@
+.interessado-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E0E0E0;
+    transition: box-shadow 0.3s ease;
+}
+
+.interessado-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.interessado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.interessado-perfil {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.interessado-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.interessado-nome {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.interessado-telefone {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.interessado-estrelas {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.interessado-descricao {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.interessado-acoes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+    .interessado-card {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .interessado-acoes {
+        grid-template-columns: 1fr;
+    }
+
+    .interessado-nome {
+        font-size: 16px;
+    }
+}

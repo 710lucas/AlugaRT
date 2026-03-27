@@ -57,6 +57,31 @@ export default function CasaDetalhesPage() {
         
     }
 
+    function handleExpressarInteresse() {
+        if (!casa || !authContext.usuario) {
+            alert("Erro ao expressar interesse")
+            return
+        }
+
+        // Verificar se já está interessado
+        if (casa.interessados?.includes(authContext.usuario.id)) {
+            alert("Você já expressou interesse nesta casa")
+            return
+        }
+
+        // Adicionar usuário à lista de interessados
+        const casaIndex = casaContext?.casas.findIndex(c => c.id === casa.id) ?? -1
+        if (casaIndex >= 0) {
+            const interessadosAtualizados = [...(casa.interessados ?? []), authContext.usuario.id]
+            casaContext?.updateCasa(casaIndex, {
+                ...casa,
+                interessados: interessadosAtualizados
+            })
+            alert("Interesse expressado com sucesso! O proprietário será notificado.")
+            location.reload()
+        }
+    }
+
     useEffect(() => {
         try{
             const casaId = Number(window.location.pathname.split('/').filter(Boolean).pop())
@@ -160,8 +185,8 @@ export default function CasaDetalhesPage() {
                     <div className="acoes-abaixo-imagem">
                         {perfilUsuario === 'proprietario' && (
                             <div className="modo-proprietario-acoes">
-                                <span className="txt-interessados">8 Interessados</span>
-                                <ActionButton name="Ver interessados" cor="#FF5A5F" action={() => {}} />
+                                <span className="txt-interessados">{casa?.interessados?.length ?? 0} Interessados</span>
+                                <ActionButton name="Ver interessados" cor="#FF5A5F" action={() => {document.location = '/casa/'+casa?.id+'/interessados'}} />
                                 <ActionButton name="Editar Casa" cor="#FF5A5F" icon="edit" action={() => {document.location = '/casa/editar/'+casa?.id}} />
                             </div>
                         )}
@@ -188,6 +213,11 @@ export default function CasaDetalhesPage() {
                         )}
                         {perfilUsuario === 'visitante' && (
                             <div className="modo-visitante-acoes">
+                                <ActionButton 
+                                    name="Expressar interesse" 
+                                    cor="#28A745" 
+                                    action={handleExpressarInteresse} 
+                                />
                                 <div className="favoritar-btn" onClick={handleFavoritar}>
                                     {authContext.usuario?.favoritos.find(c => c.id === casa?.id) !== undefined ? 
                                         <>
