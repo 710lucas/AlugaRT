@@ -1,0 +1,239 @@
+.interessados-container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding-bottom: 40px;
+}
+
+.interessados-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.interessados-header {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.casa-info {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.casa-thumbnail {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.casa-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.casa-nome {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.casa-endereco {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.interessados-header-title {
+    margin-bottom: 32px;
+}
+
+.interessados-header-title h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+}
+
+.interessados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 24px;
+}
+
+.sem-interessados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    color: #999;
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .interessados-content {
+        padding: 20px 16px;
+    }
+
+    .interessados-header {
+        padding: 16px;
+        margin-bottom: 24px;
+    }
+
+    .casa-info {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .casa-thumbnail {
+        width: 100%;
+        height: 200px;
+    }
+
+    .casa-nome {
+        font-size: 22px;
+    }
+
+    .interessados-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .interessados-content {
+        padding: 16px 12px;
+    }
+
+    .interessados-header {
+        padding: 12px;
+    }
+
+    .casa-nome {
+        font-size: 20px;
+    }
+
+    .casa-endereco {
+        font-size: 14px;
+    }
+
+    .interessados-header-title h2 {
+        font-size: 20px;
+    }
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 24px 0;
+}
+
+.modal-body {
+    margin-bottom: 24px;
+}
+
+.modal-body label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.modal-body input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.modal-body input[type="date"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.btn-salvar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-salvar:hover {
+    background-color: #45a049;
+}
+
+.btn-salvar:active {
+    background-color: #3d8b40;
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 24px;
+        max-width: 100%;
+    }
+
+    .modal-content h2 {
+        font-size: 18px;
+    }
+}

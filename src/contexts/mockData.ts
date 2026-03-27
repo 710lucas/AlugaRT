@@ -15,7 +15,8 @@ export const CASAS: Casa[] = [
         tags: ["home office","ar-condicionado","piscina","churrasqueira"],
         valor: 1917,
         imagens: ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80","https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80","https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80"],
-        estado: "disponivel"
+        estado: "disponivel",
+        interessados: [16,17,18]
     },
     {
         id: 2,
@@ -243,7 +244,7 @@ export const CASAS: Casa[] = [
         tags: ["ar-condicionado","pet-friendly","academia"],
         valor: 1069,
         imagens: ["https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80","https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80","https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"],
-        estado: "indisponivel"
+        estado: "indisponivel",
     },
 ];
 

@@ -9,4 +9,5 @@ export type Casa = {
     valor : number;
     imagens : string[];
     estado : 'disponivel' | 'indisponivel'
+    interessados?: number[] // IDs dos usuários interessados
 }
