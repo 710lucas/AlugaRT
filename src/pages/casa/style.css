@@ -287,3 +287,8 @@ header, .header-container {
 .hidden{
     display: none;
 }
+
+.modo-visitante-acoes{
+    display: flex;
+    gap: 1rem;
+}
