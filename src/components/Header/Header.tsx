@@ -20,7 +20,7 @@ export default function Header({ onFiltersApply, onSearch, onQuickSearch }: Head
 
     return (
         <div className="header-container">
-            <div className="logo-container">
+            <div className="logo-container" onClick={() => {document.location = '/'}}>
                 Aluga<span style={{ color: "var(--vermelho)" }}>RT</span>
             </div>
 
