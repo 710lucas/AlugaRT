@@ -35,16 +35,13 @@ export default function InteressadosPage() {
                 throw new Error("Casa não encontrada");
             }
 
-            // Verificar se é proprietário
             const proprietario = usuarioContext?.getProprietarioByCasaId(casaId);
             if (!proprietario) {
                 throw new Error("Proprietário não encontrado para esta casa");
             }
 
-            // Tentar recuperar usuário autenticado
             let usuarioAutenticado = authContext?.usuario;
             
-            // Se não tiver no authContext, tentar buscar pelo localStorage
             if (!usuarioAutenticado) {
                 const nomeSalvo = localStorage.getItem('loggedUser');
                 if (nomeSalvo) {
@@ -67,7 +64,6 @@ export default function InteressadosPage() {
 
             setCasa(casaEncontrada);
 
-            // Buscar usuários interessados
             if (casaEncontrada.interessados && casaEncontrada.interessados.length > 0) {
                 const usuarios = casaEncontrada.interessados
                     .map(usuarioId => usuarioContext?.usuarios.find(u => u.id === usuarioId))
@@ -125,7 +121,6 @@ export default function InteressadosPage() {
                 interessados: usuariosAtualizados
             };
 
-            // Encontrar a casa na lista do contexto
             const casaIndex = casaContext?.casas.findIndex(c => c.id === casa.id) ?? -1;
             
             if (casaIndex >= 0) {
@@ -208,7 +203,6 @@ export default function InteressadosPage() {
                 </div>
             </div>
 
-            {/* Modal de Informações do Contrato */}
             {modalAberto && (
                 <div className="modal-overlay" onClick={() => setModalAberto(false)}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>

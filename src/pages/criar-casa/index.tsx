@@ -8,7 +8,6 @@ import ActionButton from "../../components/ActionButton/ActionButton";
 import ImageInput from "../../components/ImageInput/ImageInput";
 import { UsuarioContext } from "../../contexts/UsuarioContext/UsuarioContext";
 
-// Se usar react-router-dom, pode usar useParams/useNavigate, senão fallback para window.location
 function getCasaIdFromUrl() {
   const parts = window.location.pathname.split("/").filter(Boolean);
   const id = parts[parts.length - 1];
@@ -81,7 +80,6 @@ export function CriarCasaPage() {
 			if(!casa) return;
 
 
-			// Garante imutabilidade ao adicionar a casa
 			const novasCasas = usuario.casas ? [...usuario.casas, casa] : [casa];
 			const usuarioAtualizado = { ...usuario, casas: novasCasas };
 

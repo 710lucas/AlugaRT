@@ -4,7 +4,6 @@ export function calcularAnosInteiros(dataInicio : Date, dataFim: Date) {
 
   let anos = fim.getFullYear() - inicio.getFullYear();
   
-  // Ajusta se o aniversário ainda não passou no ano atual
   const mesAtual = fim.getMonth();
   const diaAtual = fim.getDate();
   const mesNasc = inicio.getMonth();

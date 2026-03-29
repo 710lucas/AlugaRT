@@ -31,17 +31,14 @@ export default function PerfilUsuarioPage() {
     const usuarioContext = useContext(UsuarioContext);
     const avaliacaoContext = useContext(AvaliacaoContext);
 
-    // Busca usuário pelo id da URL
     const usuario = usuarioContext?.usuarios.find(u => u.id === Number(id));
     if (!usuario) {
         return <div className="detalhes-container"><h2>Usuário não encontrado</h2></div>;
     }
 
-    // Permissões de visualização
     const isSelf = usuarioLogado && usuarioLogado.id === usuario.id;
     const isLocador = usuario.role === 'locador';
 
-    // Abas disponíveis
     let abasDisponiveis: { key: Aba; label: string }[] = [
         { key: 'feedbacks', label: 'Feedbacks' },
     ];
@@ -63,7 +60,6 @@ export default function PerfilUsuarioPage() {
         abasDisponiveis = abas_;
     }
 
-    // Dados de perfil
     const minhasCasas = usuario.casas || [];
     let feedbacks = usuario.avaliacoes || [];
     if (isLocador) {
@@ -81,7 +77,6 @@ export default function PerfilUsuarioPage() {
     const telefone = usuario.telefone ? usuario.telefone.toString().replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3') : '';
     const mediaAvaliacao = feedbacks.length > 0 ? Math.round(feedbacks.map(a => a.notaCasa).reduce((acc, n) => acc + n, 0) / feedbacks.length) : 0;
 
-    // Define aba inicial pelo query param, se existir e for válida
     const abaParam = searchParams.get('aba') as Aba | null;
     const abasValidas: Aba[] = ['feedbacks', 'contratos', 'favoritos', 'pendente', 'casas'];
     const abaInicial: Aba = abaParam && abasValidas.includes(abaParam) ? abaParam : (isLocador || isSelf ? 'casas' : 'feedbacks');

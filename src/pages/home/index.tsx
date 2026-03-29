@@ -51,7 +51,6 @@ export default function HomePage () {
             });
         }
 
-        // Depois aplica os filtros adicionais (tags e quartos)
         resultado = resultado.filter((casa) => {
             if (filtros.tags.length > 0) {
                 const temAtraPenasUmaTag = filtros.tags.some(tag => 

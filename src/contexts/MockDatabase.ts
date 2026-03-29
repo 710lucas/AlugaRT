@@ -2,8 +2,6 @@ import { Avaliacao } from "../types/Avaliacao";
 import { Casa } from "../types/Casa";
 import { Contrato } from "../types/Contrato";
 import { Usuario } from "../types/Usuario";
-// Importe as constantes do arquivo de dados criado acima
-
 import { USUARIOS, CASAS, CONTRATOS, AVALIACOES } from "./mockData";
 
 const STORAGE_KEY = "alugart_db";
@@ -69,7 +67,6 @@ export class MockDatabase {
         });
     }
 
-    // --- USUÁRIO ---
     createUsuario(usuario: Omit<Usuario, "id">): Usuario {
         const novoUsuario = { ...usuario, id: this.usuarioId++ };
         this.usuarios = [...this.usuarios, novoUsuario];
@@ -94,7 +91,6 @@ export class MockDatabase {
         return [...this.usuarios];
     }
 
-    // --- CASA ---
     createCasa(casa: Omit<Casa, "id">): Casa {
         const novaCasa = { ...casa, id: this.casaId++ };
         this.casas = [...this.casas, novaCasa];
@@ -116,7 +112,6 @@ export class MockDatabase {
         return [...this.casas];
     }
 
-    // --- CONTRATO ---
     createContrato(contrato: Contrato): Contrato {
         this.contratos = [...this.contratos, contrato];
         this.persist();
@@ -137,7 +132,6 @@ export class MockDatabase {
         return [...this.contratos];
     }
 
-    // --- AVALIAÇÃO ---
     createAvaliacao(avaliacao: Omit<Avaliacao, "id">): Avaliacao {
         const novaAvaliacao = { ...avaliacao, id: this.avaliacaoId++ };
         this.avaliacoes = [...this.avaliacoes, novaAvaliacao];
@@ -159,7 +153,6 @@ export class MockDatabase {
         return [...this.avaliacoes];
     }
 
-    // --- MÉTODOS UTILITÁRIOS ---
     adicionarCasaParaUsuario(usuarioIndex: number, casa: Casa): void {
         const usuario = this.usuarios[usuarioIndex];
         if (!usuario.casas) usuario.casas = [];
@@ -196,10 +189,6 @@ export class MockDatabase {
         this.usuarios = this.usuarios.map((u, i) => (i === usuarioIndex ? usuario : u));
         this.persist();
     }
-
-    // adicionarAvaliacaoParaCasa(casaIndex: number, avaliacao: Avaliacao): void {
-    //     // Lógica futura caso adicione o array de avaliações em Casa.
-    // }
 
     resetDatabase() {
         const data = getDefaultData();

@@ -63,13 +63,11 @@ export default function CasaDetalhesPage() {
             return
         }
 
-        // Verificar se já está interessado
         if (casa.interessados?.includes(authContext.usuario.id)) {
             alert("Você já expressou interesse nesta casa")
             return
         }
 
-        // Adicionar usuário à lista de interessados
         const casaIndex = casaContext?.casas.findIndex(c => c.id === casa.id) ?? -1
         if (casaIndex >= 0) {
             const interessadosAtualizados = [...(casa.interessados ?? []), authContext.usuario.id]
@@ -126,20 +124,6 @@ export default function CasaDetalhesPage() {
         }
     }, [casaContext, avaliacaoContext, authContext])
 
-    // const casa = {
-    //     nome: "Casa Conjunto 3 quartos",
-    //     endereco: "Rua Abc do Teste 123 - 600",
-    //     valor: "700,00",
-    //     descricao: "Casa ampla com 3 quartos, ideal para famílias, bem localizada e com ótimo custo-benefício por R$ 700. Ambiente arejado, segura e próxima a serviços essenciais.",
-    //     proprietario: {
-    //         nome: "Carlos Teste da Silva",
-    //         info: "10 imóveis na plataforma | 2 anos",
-    //         foto: "" 
-    //     },
-    //     avaliacao: 4
-    // };
-
-    // Estado para o carrossel de imagens
     const [imagemAtual, setImagemAtual] = useState(0);
 
     return (
@@ -147,7 +131,6 @@ export default function CasaDetalhesPage() {
             <Header/>
             <div className="detalhes-card-main">
                 <div className="coluna-imagem">
-                    {/* Carrossel de imagens */}
                     {casa && casa.imagens && casa.imagens.length > 0 && (
                         <div className="carrossel-imagens-integrado">
                             <img 

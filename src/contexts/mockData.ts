@@ -3,7 +3,6 @@ import { Casa } from "../types/Casa";
 import { Contrato } from "../types/Contrato";
 import { Usuario } from "../types/Usuario";
 
-// 1. CASAS (20 Casas)
 export const CASAS: Casa[] = [
     {
         id: 1,
@@ -248,7 +247,6 @@ export const CASAS: Casa[] = [
     },
 ];
 
-// 2. CONTRATOS (33 Contratos)
 export const CONTRATOS: Contrato[] = [
     { casa: CASAS[2], dataInicio: new Date("2024-02-01"), dataFim: new Date("2024-11-30"), enviado: true, aceito: true, dataAceito: new Date("2024-01-25") },
     { casa: CASAS[10], dataInicio: new Date("2024-02-01"), dataFim: new Date("2024-11-30"), enviado: true, aceito: true, dataAceito: new Date("2024-01-25") },
@@ -285,7 +283,6 @@ export const CONTRATOS: Contrato[] = [
     { casa: CASAS[18], dataInicio: new Date("2024-02-01"), dataFim: new Date("2024-11-30"), enviado: true, aceito: true, dataAceito: new Date("2024-01-25") },
 ];
 
-// 3. AVALIACOES (24 Avaliações)
 export const AVALIACOES: Avaliacao[] = [
     {
         id: 1,
@@ -481,9 +478,7 @@ export const AVALIACOES: Avaliacao[] = [
     },
 ];
 
-// 4. USUARIOS (15 Locatários, 10 Locadores)
 export const USUARIOS: Usuario[] = [
-    // --- LOCATÁRIOS ---
     { id: 1, nome: "Rafael Martins", avaliacoes: [], createdAt: new Date("2024-01-01"), telefone: 83956838855, contratos: [CONTRATOS[0]], favoritos: [CASAS[9], CASAS[9]], casas: undefined, password: "senha123", role: "locatario" },
     { id: 2, nome: "Felipe Alves", avaliacoes: [AVALIACOES[0]], createdAt: new Date("2024-01-01"), telefone: 83985885239, contratos: [CONTRATOS[1]], favoritos: [CASAS[1], CASAS[8]], casas: undefined, password: "senha123", role: "locatario" },
     { id: 3, nome: "João Pedro Mendes", avaliacoes: [AVALIACOES[1], AVALIACOES[2], AVALIACOES[3]], createdAt: new Date("2024-01-01"), telefone: 83946497093, contratos: [CONTRATOS[2], CONTRATOS[3], CONTRATOS[4]], favoritos: [CASAS[2], CASAS[10]], casas: undefined, password: "senha123", role: "locatario" },
@@ -500,7 +495,6 @@ export const USUARIOS: Usuario[] = [
     { id: 14, nome: "Beatriz Lima", avaliacoes: [AVALIACOES[21]], createdAt: new Date("2024-01-01"), telefone: 83979653134, contratos: [CONTRATOS[28], CONTRATOS[29]], favoritos: [CASAS[16], CASAS[9]], casas: undefined, password: "senha123", role: "locatario" },
     { id: 15, nome: "Letícia Dias", avaliacoes: [AVALIACOES[22], AVALIACOES[23]], createdAt: new Date("2024-01-01"), telefone: 83963369415, contratos: [CONTRATOS[30], CONTRATOS[31], CONTRATOS[32]], favoritos: [CASAS[2], CASAS[3]], casas: undefined, password: "senha123", role: "locatario" },
 
-    // --- LOCADORES ---
     { id: 16, nome: "Beatriz Mendes", avaliacoes: [], createdAt: new Date("2023-06-15"), telefone: 83973682457, contratos: [CONTRATOS[0], CONTRATOS[2], CONTRATOS[22]], favoritos: [], casas: [CASAS[2]], password: "senha123", role: "locador" },
     { id: 17, nome: "João Pedro Barros", avaliacoes: [], createdAt: new Date("2023-06-15"), telefone: 83945476461, contratos: [CONTRATOS[7], CONTRATOS[11], CONTRATOS[20], CONTRATOS[26], CONTRATOS[29]], favoritos: [], casas: [CASAS[4], CASAS[12], CASAS[14]], password: "senha123", role: "locador" },
     { id: 18, nome: "Igor Henrique", avaliacoes: [], createdAt: new Date("2023-06-15"), telefone: 83921015672, contratos: [CONTRATOS[12], CONTRATOS[25]], favoritos: [], casas: [CASAS[19]], password: "senha123", role: "locador" },
