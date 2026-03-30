@@ -1,11 +1,5 @@
 import { Casa } from '../types/Casa';
 
-/**
- * Função de busca que filtra casas por texto (nome, descrição, endereço, tags)
- * @param casas - Array de casas para filtrar
- * @param searchTerm - Termo de busca
- * @returns Array de casas que correspondem ao termo de busca
- */
 export const searchCasasByText = (casas: Casa[], searchTerm: string): Casa[] => {
     if (!searchTerm.trim()) {
         return casas;
@@ -38,11 +32,6 @@ export const searchCasasByText = (casas: Casa[], searchTerm: string): Casa[] => 
     });
 };
 
-/**
- * Função que indexa as tags de uma casa para busca
- * @param casa - Casa para indexar
- * @returns Array com todas as palavras-chave indexadas
- */
 export const indexCasaTags = (casa: Casa): string[] => {
     const indexed = new Set<string>();
 
